@@ -17,7 +17,7 @@ contact networks in the future).
 
 <figure style="display: flex; flex-flow: column;">
   <img src="examples/network-of-initially-infected.png" />
-  <figcaption style="font: italic small sans-serif; text-align: center;">
+  <figcaption style="font-size: x-small; text-align: center;">
     The contact network of a specific individual. Each colored square is a leaf,
     i.e. the most fine-grained grouping of the population. Since these are
     generated using a BSP tree, each grouping on level N is paired with a neighbor
