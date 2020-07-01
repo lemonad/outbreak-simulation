@@ -18,7 +18,7 @@ from graph import Graph
 g = Graph(100, 100)
 g.adjacency_matrix()
 initially_infected = g.infect_random(n=1)
-social_distancing = False
+physical_distancing = False
 
 for p in Path("./images").glob("image-*.png"):
     p.unlink()
@@ -30,19 +30,19 @@ for i in range(250):
 
     n_susceptible = g.stats[-1]["S"]
     n_infected = g.stats[-1]["I"]
-    n_recovered = g.stats[-1][3]
+    # n_recovered = g.stats[-1]["R"]
 
     # Stop early if epidemic is over.
     if n_infected == 0:
         break
 
-    # TODO Social distancing only when we have a large amount of
+    # TODO Physical distancing only when we have a large amount of
     # simultaneous infections? The number of cumulative infections would
     # not count into the decision, right?
-    if not social_distancing and (n_infected / n_susceptible) > 0.1:
-        social_distancing = True
-        g.social_distancing(rate=0.1)
-    # elif social_distancing and (n_infected / n_susceptible) > 0.1:
+    if not physical_distancing and (n_infected / n_susceptible) > 0.1:
+        physical_distancing = True
+        g.physical_distancing(rate=0.1)
+    # elif physical_distancing and (n_infected / n_susceptible) > 0.1:
     # simulate opening up.
 
     g.plot(filename=f"images/plot-{i:03d}.png")
@@ -51,4 +51,4 @@ for i in range(250):
 print(g.stats)
 
 # Uncomment to show connection graph of the first initially infected person.
-# g.image(adj_id=initially_infected[0])
+# g.image(adj_id=initially_infected[0], modal=True)

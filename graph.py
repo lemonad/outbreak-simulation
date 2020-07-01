@@ -5,6 +5,22 @@ TODO Prune closer contacts less than those far away?
 TODO Use overlapping leaves to degree of contactness (c).
      That is, something like at level N, c=1, at level N-1, c=0.5,
      where contacts at level N-1 exclude those at level N.
+TODO Model difference in latent period and incubation period (e.g. presymptomatic
+     infectiousness seems to be on the scale of multiple days in the case of COVID-19")
+TODO Model severity of symptoms with more severe cases limiting their contacts
+     more than milder cases.
+TODO Estimate R0 using the initial data (for checking that parameters are set ok)
+TODO Contacts further away could be seen as going to the store and someone travelling
+     being there — but then this type of contacts should be random and not constant
+     over time. In this case it would be okay with a high transmission probability.
+TODO Transmission probability should be probably be random, especially for intermittent
+     contacts further away in the graph. Generally low but sometimes very high.
+TODO Metrics? When implementing changes, the result should preferably become better
+     according to some metric (more interesting, more accurate, more realistic,
+     faster, etc.)
+TODO Model reporting times in order to have something to test nowcasting and
+     back-projection on.
+TODO Estimate generation times.
 """
 from enum import Enum
 import math
@@ -31,7 +47,7 @@ class NodeState(Enum):
 
 class GraphState(Enum):
     NORMAL = 1
-    SOCIAL_DISTANCING = 2
+    PHYSICAL_DISTANCING = 2
     OPENING_UP = 3
 
 
@@ -122,7 +138,7 @@ class Graph:
         self.stats = []
         self.t = 0
         self.state = GraphState.NORMAL
-        self.social_distancing_t = None
+        self.physical_distancing_t = None
 
     def infect_random(self, n=1):
         assert self.nodes
@@ -131,9 +147,9 @@ class Graph:
             self.nodes[node_id].infectious()
         return node_ids
 
-    def social_distancing(self, rate=0.5):
-        self.state = GraphState.SOCIAL_DISTANCING
-        self.social_distancing_t = self.t
+    def physical_distancing(self, rate=0.5):
+        self.state = GraphState.PHYSICAL_DISTANCING
+        self.physical_distancing_t = self.t
         for node_id in self.adj:
             contact_ids = self.adj[node_id]
             n_ids = len(contact_ids)
@@ -200,12 +216,12 @@ class Graph:
         plt.plot(t, infected_cumulative, color="orange", label="I (cumul.)")
         plt.plot(t, recovered, color="green", label="R")
         plt.plot(t, infected, color="red", label="I")
-        if self.social_distancing_t:
+        if self.physical_distancing_t:
             plt.axvline(
-                x=self.social_distancing_t,
+                x=self.physical_distancing_t,
                 linestyle=":",
                 color="gray",
-                label="social dist.",
+                label="physical dist.",
             )
         fig.legend()
         if show:
@@ -213,7 +229,7 @@ class Graph:
         if filename:
             plt.savefig(filename)
 
-    def image(self, adj_id=None, show=True, filename=None):
+    def image(self, adj_id=None, show=True, filename=None, modal=False):
         assert self.nodes
         image = Image.new("RGB", (self.n1, self.n2))
         for node in self.nodes.values():
@@ -255,7 +271,10 @@ class Graph:
         if show:
             plt.figure(2)
             plt.imshow(image)
-            plt.pause(0.1)
+            if modal:
+                plt.show()
+            else:
+                plt.pause(0.1)
         if filename:
             image.save(filename)
 
