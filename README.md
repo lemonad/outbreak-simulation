@@ -50,20 +50,32 @@ distance as parameter.
 <div align="center">
   <figure>
     <img src="examples/pre-outbreak.jpg">
-    <figcaption>Outbreak in its initial phase with few infected.</figcaption>
+    <figcaption>
+      <p><i>
+        Outbreak in its initial phase with few infected.
+      </i></p>
+    </figcaption>
   </figure>
 </div>
 
 <div align="center">
   <figure>
     <img src="examples/physical-distancing.jpg">
-    <figcaption>After physical distancing is recommended.</figcaption>
+    <figcaption>
+      <p><i>
+        After physical distancing is recommended.
+      </i></p>
+    </figcaption>
   </figure>
 </div>
 
 <div align="center">
   <figure>
     <img src="examples/post-outbreak.jpg">
-    <figcaption>Outbreak ends.</figcaption>
+    <figcaption>
+      <p><i>
+        Outbreak ends.
+      </i></p>
+    </figcaption>
   </figure>
 </div>
