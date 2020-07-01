@@ -15,9 +15,9 @@ with anyone in their leaf. This probability falls the further away another
 individual is (but the intention is to use the levels of the BSP tree to model
 contact networks in the future).
 
-<figure style="display: flex; flex-flow: column; margin: auto">
-  <img src="examples/network-of-initially-infected.png">
-  <figcaption style="font: italic smaller sans-serif">
+<figure style="display: flex; flex-flow: column;">
+  <img src="examples/network-of-initially-infected.png" />
+  <figcaption style="font: italic small sans-serif; text-align: center;">
     The contact network of a specific individual. Each colored square is a leaf,
     i.e. the most fine-grained grouping of the population. Since these are
     generated using a BSP tree, each grouping on level N is paired with a neighbor
@@ -35,7 +35,7 @@ with someone is essentially modeled using an exponential distribution with the
 distance as parameter.
 
 
-## Video examples
+## Video examples (click to play!)
 
 [![Simulation without physical distancing](http://img.youtube.com/vi/TZcUvUG_sMQ/0.jpg)](http://www.youtube.com/watch?v=TZcUvUG_sMQ "Simulation without physical distancing")
 
