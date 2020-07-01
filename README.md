@@ -15,16 +15,18 @@ with anyone in their leaf. This probability falls the further away another
 individual is (but the intention is to use the levels of the BSP tree to model
 contact networks in the future).
 
-<figure style="display: flex; flex-flow: column;">
-  <img src="examples/network-of-initially-infected.png" />
-  <figcaption style="font-size: x-small; text-align: center;">
-    The contact network of a specific individual. Each colored square is a leaf,
-    i.e. the most fine-grained grouping of the population. Since these are
-    generated using a BSP tree, each grouping on level N is paired with a neighbor
-    grouping on the same level and contained in a larger group on level N-1, etc.
-    Finally, all groups are contained in the root node of the tree (level 0).
-  </figcaption>
-</figure>
+<div align="center">
+  <figure style="display: flex; flex-flow: column;">
+    <img src="examples/network-of-initially-infected.png" />
+    <figcaption style="font-size: small">
+      The contact network of a specific individual. Each colored square is a leaf,
+      i.e. the most fine-grained grouping of the population. Since these are
+      generated using a BSP tree, each grouping on level N is paired with a neighbor
+      grouping on the same level and contained in a larger group on level N-1, etc.
+      Finally, all groups are contained in the root node of the tree (level 0).
+    </figcaption>
+  </figure>
+</div>
 
 The contact network of an initially infected individual, shown above, is, for larger
 graphs like here, obviously too large, at least for modelling daily interaction.
