@@ -1,5 +1,7 @@
 Simulation of infectious disease outbreaks for learning and probably
-neither useful nor particularly interesting.
+neither useful nor particularly interesting. Loosely based on the course 
+"The Mathematics and Statistics of Infectious Disease Outbreaks" (MT3002)
+at Stockholm University, Summer 2020.
 
 The underlying idea is to simulate epidemics on an individual level with
 modelling of overlapping contact groups where a group can be seen as family,
