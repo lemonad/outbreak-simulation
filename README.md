@@ -16,14 +16,16 @@ individual is (but the intention is to use the levels of the BSP tree to model
 contact networks in the future).
 
 <div align="center">
-  <figure style="display: flex; flex-flow: column;">
+  <figure>
     <img src="examples/network-of-initially-infected.png" />
-    <figcaption style="font-size: small">
-      The contact network of a specific individual. Each colored square is a leaf,
-      i.e. the most fine-grained grouping of the population. Since these are
-      generated using a BSP tree, each grouping on level N is paired with a neighbor
-      grouping on the same level and contained in a larger group on level N-1, etc.
-      Finally, all groups are contained in the root node of the tree (level 0).
+    <figcaption>
+      <br /><small>
+        The contact network of a specific individual. Each colored square is a leaf,
+        i.e. the most fine-grained grouping of the population. Since these are
+        generated using a BSP tree, each grouping on level N is paired with a neighbor
+        grouping on the same level and contained in a larger group on level N-1, etc.
+        Finally, all groups are contained in the root node of the tree (level 0).
+      </small>
     </figcaption>
   </figure>
 </div>
