@@ -15,18 +15,16 @@ with anyone in their leaf. This probability falls the further away another
 individual is (but the intention is to use the levels of the BSP tree to model
 contact networks in the future).
 
-<div align="center">
-  <figure>
-    <img src="examples/network-of-initially-infected.png">
-    <figcaption>
-      The contact network of a specific individual. Each colored square is a leaf,
-      i.e. the most fine-grained grouping of the population. Since these are
-      generated using a BSP tree, each grouping on level N is paired with a neighbor
-      grouping on the same level and contained in a larger group on level N-1, etc.
-      Finally, all groups are contained in the root node of the tree (level 0).
-    </figcaption>
-  </figure>
-</div>
+<figure style="display: flex; flex-flow: column; margin: auto">
+  <img src="examples/network-of-initially-infected.png">
+  <figcaption style="font: italic smaller sans-serif">
+    The contact network of a specific individual. Each colored square is a leaf,
+    i.e. the most fine-grained grouping of the population. Since these are
+    generated using a BSP tree, each grouping on level N is paired with a neighbor
+    grouping on the same level and contained in a larger group on level N-1, etc.
+    Finally, all groups are contained in the root node of the tree (level 0).
+  </figcaption>
+</figure>
 
 The contact network of an initially infected individual, shown above, is, for larger
 graphs like here, obviously too large, at least for modelling daily interaction.
@@ -37,17 +35,14 @@ with someone is essentially modeled using an exponential distribution with the
 distance as parameter.
 
 
-## Examples
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/TZcUvUG_sMQ" frameborder="0"
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen></iframe>
+## Video examples
 
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/Qp4Td1g3fRU" frameborder="0"
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen></iframe>
+[![Simulation without physical distancing](http://img.youtube.com/vi/TZcUvUG_sMQ/0.jpg)](http://www.youtube.com/watch?v=TZcUvUG_sMQ "Simulation without physical distancing")
 
+[![Simulation without physical distancing](http://img.youtube.com/vi/Qp4Td1g3fRU/0.jpg)](http://www.youtube.com/watch?v=Qp4Td1g3fRU "Simulation with physical distancing")
+
+
+## Image examples
 <div align="center">
   <figure>
     <img src="examples/pre-outbreak.jpg">
