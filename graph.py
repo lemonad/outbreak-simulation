@@ -35,14 +35,15 @@ matplotlib.use("MacOSX")
 import matplotlib.pyplot as plt
 
 from bsp import BSP_Tree
+from distributions import Distributions
 from geometry import Point, Rect
 
 
 class NodeState(Enum):
-    SUSCEPTIBLE = 1
-    INFECTED_LATENT = 2
-    INFECTIOUS = 3
-    RECOVERED = 4
+    SUSCEPTIBLE = 1       # (S)usceptible
+    INFECTED_LATENT = 2   # (E)xposed
+    INFECTIOUS = 3        # (I)infectious
+    RECOVERED = 4         # (R)ecovered/removed
 
 
 class GraphState(Enum):
@@ -52,6 +53,7 @@ class GraphState(Enum):
 
 
 class Node:
+    distributions = Distributions("covid-19")
     # TODO Use duration/period random distributions.
     # infectious_durations = stats.norm(loc=7, scale=2)
     # latent_periods = stats.norm(loc=4, scale=1)
@@ -85,11 +87,11 @@ class Node:
 
     def infect(self):
         self.state = NodeState.INFECTED_LATENT
-        self.counter = 7
+        self.counter = self.distributions.latent_period_dist.rvs(1)
 
     def infectious(self, infectious=False):
         self.state = NodeState.INFECTIOUS
-        self.counter = 7
+        self.counter = self.distributions.infectious_duration_dist.rvs(1)
 
     def recover(self):
         self.state = NodeState.RECOVERED

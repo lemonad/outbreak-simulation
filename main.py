@@ -1,7 +1,7 @@
 """
 Jonas Nockert (2020)
 
-Epidemiological SIR model simulation created for fun/learning during the course
+Epidemiological SEIR model simulation created for fun/learning during the course
 "The Mathematics and Statistics of Infectious Disease Outbreaks" (MT3002)
 at Stockholm University, Summer 2020.
 
